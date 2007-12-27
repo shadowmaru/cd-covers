@@ -1,0 +1,36 @@
+  [4;36;1mSQL (0.000384)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.128971)[0m   [0mCREATE DATABASE `cdcovers_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000440)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000397)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000208)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.022388)[0m   [0;1mCREATE DATABASE `cdcovers_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000435)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.022810)[0m   [0mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000865)[0m   [0;1mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000627)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (1)
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'users': DROP TABLE `users`[0m
+  [4;36;1mSQL (0.085458)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `crypted_password` varchar(40) DEFAULT NULL, `salt` varchar(40) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL, `remember_token` varchar(255) DEFAULT NULL, `remember_token_expires_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000775)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000475)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000633)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.013192)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002325)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000758)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000444)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.000598)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000437)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateAlbumArts (2)
+  [4;35;1mSQL (0.064180)[0m   [0mCREATE TABLE `album_arts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) DEFAULT NULL, `album_name` varchar(255) DEFAULT NULL, `artist_name` varchar(255) DEFAULT NULL, `image` varchar(255) DEFAULT NULL, `image_size` varchar(255) DEFAULT NULL, `image_filesize` varchar(255) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `score` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001735)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000463)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000650)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.017348)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mSQL (0.003228)[0m   [0;1mdescribe `album_arts`[0m
+  [4;35;1mSQL (0.000763)[0m   [0mSHOW KEYS FROM `album_arts`[0m
+  [4;36;1mSQL (0.002518)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002342)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000733)[0m   [0;1mSHOW KEYS FROM `users`[0m

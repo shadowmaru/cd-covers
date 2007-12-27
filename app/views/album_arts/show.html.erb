@@ -1,0 +1,48 @@
+<p>
+  <b>User:</b>
+  <%=h @album_art.user_id %>
+</p>
+
+<p>
+  <b>Album name:</b>
+  <%=h @album_art.album_name %>
+</p>
+
+<p>
+  <b>Artist name:</b>
+  <%=h @album_art.artist_name %>
+</p>
+
+<p>
+  <b>Image:</b>
+  <%=h @album_art.image %>
+</p>
+
+<p>
+  <b>Image size:</b>
+  <%=h @album_art.image_size %>
+</p>
+
+<p>
+  <b>Image filesize:</b>
+  <%=h @album_art.image_filesize %>
+</p>
+
+<p>
+  <b>Thumbnail:</b>
+  <%=h @album_art.thumbnail %>
+</p>
+
+<p>
+  <b>Score:</b>
+  <%=h @album_art.score %>
+</p>
+
+<p>
+  <b>Created at:</b>
+  <%=h @album_art.created_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_album_art_path(@album_art) %> |
+<%= link_to 'Back', album_arts_path %>
