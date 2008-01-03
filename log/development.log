@@ -34,3 +34,1825 @@ Migrating to CreateAlbumArts (2)
   [4;36;1mSQL (0.002518)[0m   [0;1mSHOW FIELDS FROM `users`[0m
   [4;35;1mSQL (0.002342)[0m   [0mdescribe `users`[0m
   [4;36;1mSQL (0.000733)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.092252)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.003211)[0m   [0mCREATE DATABASE `cdcovers_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_general_ci`[0m
+  [4;36;1mSQL (0.000150)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.047771)[0m   [0mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.044747)[0m   [0;1mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.002395)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (1)
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'users': DROP TABLE `users`[0m
+  [4;36;1mSQL (0.105553)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `crypted_password` varchar(40) DEFAULT NULL, `salt` varchar(40) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL, `remember_token` varchar(255) DEFAULT NULL, `remember_token_expires_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.013992)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000272)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateAlbumArts (2)
+  [4;35;1mSQL (0.003095)[0m   [0mCREATE TABLE `album_arts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) DEFAULT NULL, `album_name` varchar(255) DEFAULT NULL, `artist_name` varchar(255) DEFAULT NULL, `image` varchar(255) DEFAULT NULL, `image_size` varchar(255) DEFAULT NULL, `image_filesize` varchar(255) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `score` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000366)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000281)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000514)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.029504)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mSQL (0.003183)[0m   [0;1mdescribe `album_arts`[0m
+  [4;35;1mSQL (0.001400)[0m   [0mSHOW KEYS FROM `album_arts`[0m
+  [4;36;1mSQL (0.002030)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002651)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.001253)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.008776)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.028529)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000313)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000127)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to RemoveThumbnailFromAlbumArt (3)
+  [4;36;1mSQL (0.506755)[0m   [0;1mALTER TABLE `album_arts` DROP `thumbnail`[0m
+  [4;35;1mSQL (0.038797)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.022515)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.041630)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.013166)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mSQL (0.002532)[0m   [0mdescribe `album_arts`[0m
+  [4;36;1mSQL (0.005594)[0m   [0;1mSHOW KEYS FROM `album_arts`[0m
+  [4;35;1mSQL (0.013505)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.002756)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.006046)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.010588)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.013016)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000159)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000119)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000226)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.012754)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001925)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mSQL (0.003097)[0m   [0;1mdescribe `album_arts`[0m
+  [4;35;1mSQL (0.013070)[0m   [0mSHOW KEYS FROM `album_arts`[0m
+  [4;36;1mSQL (0.001948)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002494)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.001470)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000129)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.343980)[0m   [0;1mDROP DATABASE IF EXISTS `cdcovers_test`[0m
+  [4;35;1mSQL (0.124323)[0m   [0mCREATE DATABASE `cdcovers_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'album_arts': DROP TABLE `album_arts`[0m
+  [4;36;1mSQL (0.045224)[0m   [0;1mCREATE TABLE `album_arts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) DEFAULT NULL, `album_name` varchar(255) DEFAULT NULL, `artist_name` varchar(255) DEFAULT NULL, `image` varchar(255) DEFAULT NULL, `image_size` varchar(255) DEFAULT NULL, `image_filesize` varchar(255) DEFAULT NULL, `score` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'users': DROP TABLE `users`[0m
+  [4;36;1mSQL (0.016562)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `crypted_password` varchar(40) DEFAULT NULL, `salt` varchar(40) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL, `remember_token` varchar(255) DEFAULT NULL, `remember_token_expires_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001695)[0m   [0mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000490)[0m   [0;1mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;35;1mSQL (0.001323)[0m   [0mSHOW FIELDS FROM `schema_info`[0m
+  [4;36;1mSQL (0.001227)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.000153)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000276)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000129)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000118)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000251)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000409)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002175)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mSQL (0.036646)[0m   [0;1mdescribe `album_arts`[0m
+  [4;35;1mSQL (0.001254)[0m   [0mSHOW KEYS FROM `album_arts`[0m
+  [4;36;1mSQL (0.001713)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002507)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.001210)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000129)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.023336)[0m   [0;1mDROP DATABASE IF EXISTS `cdcovers_test`[0m
+  [4;35;1mSQL (0.000607)[0m   [0mCREATE DATABASE `cdcovers_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000126)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'album_arts': DROP TABLE `album_arts`[0m
+  [4;36;1mSQL (0.002600)[0m   [0;1mCREATE TABLE `album_arts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) DEFAULT NULL, `album_name` varchar(255) DEFAULT NULL, `artist_name` varchar(255) DEFAULT NULL, `image` varchar(255) DEFAULT NULL, `image_size` varchar(255) DEFAULT NULL, `image_filesize` varchar(255) DEFAULT NULL, `score` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'users': DROP TABLE `users`[0m
+  [4;36;1mSQL (0.002015)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `crypted_password` varchar(40) DEFAULT NULL, `salt` varchar(40) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL, `remember_token` varchar(255) DEFAULT NULL, `remember_token_expires_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001410)[0m   [0mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000459)[0m   [0;1mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;35;1mSQL (0.001175)[0m   [0mSHOW FIELDS FROM `schema_info`[0m
+  [4;36;1mSQL (0.000893)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.000153)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000275)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000129)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000118)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000253)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000409)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002220)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mSQL (0.034367)[0m   [0;1mdescribe `album_arts`[0m
+  [4;35;1mSQL (0.001229)[0m   [0mSHOW KEYS FROM `album_arts`[0m
+  [4;36;1mSQL (0.001696)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002429)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.001244)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000132)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.027358)[0m   [0;1mDROP DATABASE IF EXISTS `cdcovers_test`[0m
+  [4;35;1mSQL (0.000688)[0m   [0mCREATE DATABASE `cdcovers_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000128)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'album_arts': DROP TABLE `album_arts`[0m
+  [4;36;1mSQL (0.002348)[0m   [0;1mCREATE TABLE `album_arts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) DEFAULT NULL, `album_name` varchar(255) DEFAULT NULL, `artist_name` varchar(255) DEFAULT NULL, `image` varchar(255) DEFAULT NULL, `image_size` varchar(255) DEFAULT NULL, `image_filesize` varchar(255) DEFAULT NULL, `score` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'users': DROP TABLE `users`[0m
+  [4;36;1mSQL (0.001862)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `crypted_password` varchar(40) DEFAULT NULL, `salt` varchar(40) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL, `remember_token` varchar(255) DEFAULT NULL, `remember_token_expires_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001380)[0m   [0mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000462)[0m   [0;1mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;35;1mSQL (0.001218)[0m   [0mSHOW FIELDS FROM `schema_info`[0m
+  [4;36;1mSQL (0.000892)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.011767)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.035410)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000162)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000121)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000357)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.012193)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.050490)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mSQL (0.002850)[0m   [0;1mdescribe `album_arts`[0m
+  [4;35;1mSQL (0.033422)[0m   [0mSHOW KEYS FROM `album_arts`[0m
+  [4;36;1mSQL (0.002609)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002813)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.001281)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000482)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.409797)[0m   [0;1mDROP DATABASE IF EXISTS `cdcovers_test`[0m
+  [4;35;1mSQL (0.042016)[0m   [0mCREATE DATABASE `cdcovers_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000129)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'album_arts': DROP TABLE `album_arts`[0m
+  [4;36;1mSQL (0.106863)[0m   [0;1mCREATE TABLE `album_arts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) DEFAULT NULL, `album_name` varchar(255) DEFAULT NULL, `artist_name` varchar(255) DEFAULT NULL, `image` varchar(255) DEFAULT NULL, `image_size` varchar(255) DEFAULT NULL, `image_filesize` varchar(255) DEFAULT NULL, `score` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'users': DROP TABLE `users`[0m
+  [4;36;1mSQL (0.007541)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `crypted_password` varchar(40) DEFAULT NULL, `salt` varchar(40) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL, `remember_token` varchar(255) DEFAULT NULL, `remember_token_expires_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001583)[0m   [0mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000466)[0m   [0;1mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;35;1mSQL (0.001365)[0m   [0mSHOW FIELDS FROM `schema_info`[0m
+  [4;36;1mSQL (0.016223)[0m   [0;1mUPDATE schema_info SET version = 3[0m
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:22:58) [GET]
+  Session ID: 3850c3c91d716e63655039529f73c0c1
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mSQL (0.000155)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbumArt Load (0.000374)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.08017 (12 reqs/sec) | Rendering: 0.00309 (3%) | DB: 0.00053 (0%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:23:02) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--af9f6d7f8bff8178e7745ef837d2727e5670c44a
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.013747)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+
+
+ActionView::TemplateError (undefined method `thumbnail' for #<AlbumArt:0x13ca07c>) on line #38 of album_arts/new.html.erb:
+35: 
+36:   <p>
+37:     <b>Thumbnail</b><br />
+38:     <%= f.text_field :thumbnail %>
+39:   </p>
+40: 
+41:   <p>
+
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/attribute_methods.rb:205:in `method_missing'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:562:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:562:in `value_before_type_cast'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:550:in `value_before_type_cast'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:465:in `to_input_field_tag'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:289:in `text_field'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:640:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:640:in `text_field'
+    app/views/album_arts/new.html.erb:38:in `_run_erb_47app47views47album_arts47new46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:248:in `fields_for'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:184:in `form_for'
+    app/views/album_arts/new.html.erb:5:in `_run_erb_47app47views47album_arts47new46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/album_arts_controller.rb:29:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:23:36) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Columns (0.005654)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.02416 (41 reqs/sec) | Rendering: 0.00624 (25%) | DB: 0.00565 (23%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:24:04) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.002426)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+
+
+ActionView::TemplateError (undefined method `file_column' for #<ActionView::Helpers::FormBuilder:0x3d8fc54>) on line #23 of album_arts/new.html.erb:
+20: 
+21:   <p>
+22:     <b>Image</b><br />
+23:     <%= f.file_column :image %>
+24:   </p>
+25: 
+26:   <p>
+
+    app/views/album_arts/new.html.erb:23:in `_run_erb_47app47views47album_arts47new46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:248:in `fields_for'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:184:in `form_for'
+    app/views/album_arts/new.html.erb:5:in `_run_erb_47app47views47album_arts47new46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/album_arts_controller.rb:29:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:24:39) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Columns (0.002337)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+
+
+ActionView::TemplateError (undefined method `file_column_field' for #<ActionView::Helpers::FormBuilder:0x3d637f8>) on line #23 of album_arts/new.html.erb:
+20: 
+21:   <p>
+22:     <b>Image</b><br />
+23:     <%= f.file_column_field :image %>
+24:   </p>
+25: 
+26:   <p>
+
+    app/views/album_arts/new.html.erb:23:in `_run_erb_47app47views47album_arts47new46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:248:in `fields_for'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:184:in `form_for'
+    app/views/album_arts/new.html.erb:5:in `_run_erb_47app47views47album_arts47new46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/album_arts_controller.rb:29:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:24:42) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.002300)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+
+
+ActionView::TemplateError (undefined method `file_column_field' for #<ActionView::Helpers::FormBuilder:0x3d42328>) on line #23 of album_arts/new.html.erb:
+20: 
+21:   <p>
+22:     <b>Image</b><br />
+23:     <%= f.file_column_field :image %>
+24:   </p>
+25: 
+26:   <p>
+
+    app/views/album_arts/new.html.erb:23:in `_run_erb_47app47views47album_arts47new46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:248:in `fields_for'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:184:in `form_for'
+    app/views/album_arts/new.html.erb:5:in `_run_erb_47app47views47album_arts47new46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/album_arts_controller.rb:29:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:26:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Columns (0.002403)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+ERROR: compiling _run_erb_47app47views47album_arts47new46html46erb RAISED compile error
+/Users/shadow/rails/cdcovers/app/views/album_arts/new.html.erb:23: syntax error, unexpected ',', expecting tCOLON2 or '[' or '.'
+_erbout.concat "    "; _erbout.concat(( file_column_field, :album_art, :image ).to_s); _erbout.concat "\n"
+                                                                      ^
+Function body: def _run_erb_47app47views47album_arts47new46html46erb(local_assigns)
+_erbout = ''; _erbout.concat "<h1>New album_art</h1>\n"
+_erbout.concat "\n"
+_erbout.concat(( error_messages_for :album_art ).to_s); _erbout.concat "\n"
+_erbout.concat "\n"
+ form_for(@album_art, :multipart=>true) do |f| ; _erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    <b>User</b><br />\n"
+_erbout.concat "    "; _erbout.concat(( f.text_field :user_id ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    <b>Album name</b><br />\n"
+_erbout.concat "    "; _erbout.concat(( f.text_field :album_name ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    <b>Artist name</b><br />\n"
+_erbout.concat "    "; _erbout.concat(( f.text_field :artist_name ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    <b>Image</b><br />\n"
+_erbout.concat "    "; _erbout.concat(( file_column_field, :album_art, :image ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    <b>Created at</b><br />\n"
+_erbout.concat "    "; _erbout.concat(( f.datetime_select :created_at ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    "; _erbout.concat(( f.submit "Create" ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+ end ; _erbout.concat "\n"
+_erbout.concat "\n"
+_erbout.concat(( link_to 'Back', album_arts_path ).to_s); _erbout.concat "\n"
+_erbout
+end
+Backtrace: /Users/shadow/rails/cdcovers/app/views/album_arts/new.html.erb:38:in `compile_template'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:630:in `compile_and_render_template'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/shadow/rails/cdcovers/app/controllers/album_arts_controller.rb:29:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+/usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+/usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+script/server:3
+
+
+ActionView::TemplateError (compile error
+/Users/shadow/rails/cdcovers/app/views/album_arts/new.html.erb:23: syntax error, unexpected ',', expecting tCOLON2 or '[' or '.'
+_erbout.concat "    "; _erbout.concat(( file_column_field, :album_art, :image ).to_s); _erbout.concat "\n"
+                                                                      ^) on line #23 of album_arts/new.html.erb:
+20: 
+21:   <p>
+22:     <b>Image</b><br />
+23:     <%= file_column_field, :album_art, :image %>
+24:   </p>
+25: 
+26:   <p>
+
+    app/views/album_arts/new.html.erb:38:in `compile_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:630:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/album_arts_controller.rb:29:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:27:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.002403)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+
+
+ActionView::TemplateError (can't dup Symbol) on line #23 of album_arts/new.html.erb:
+20: 
+21:   <p>
+22:     <b>Image</b><br />
+23:     <%= file_column_field :album_art, :image %>
+24:   </p>
+25: 
+26:   <p>
+
+    vendor/plugins/file_column/lib/file_column_helper.rb:26:in `dup'
+    vendor/plugins/file_column/lib/file_column_helper.rb:26:in `file_column_field'
+    app/views/album_arts/new.html.erb:23:in `_run_erb_47app47views47album_arts47new46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:248:in `fields_for'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/helpers/form_helper.rb:184:in `form_for'
+    app/views/album_arts/new.html.erb:5:in `_run_erb_47app47views47album_arts47new46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/album_arts_controller.rb:29:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:27:32) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Columns (0.002444)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.02293 (43 reqs/sec) | Rendering: 0.00615 (26%) | DB: 0.00244 (10%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#create (for 127.0.0.1 at 2008-01-02 19:27:55) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"create", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "artist_name"=>"Pitty", "created_at(3i)"=>"2", "created_at(4i)"=>"19", "album_name"=>"Anacrônico", "created_at(5i)"=>"27", "image_temp"=>"", "user_id"=>"1", "image"=>"anacronico.jpg"}}
+  [4;36;1mAlbumArt Columns (0.002523)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+
+
+TypeError (Do not know how to handle a string with value 'anacronico.jpg' that was passed to a file_column. Check if the form's encoding has been set to 'multipart/form-data'.):
+    /vendor/plugins/file_column/lib/file_column.rb:68:in `assign'
+    /vendor/plugins/file_column/lib/file_column.rb:653:in `image='
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:2117:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:2117:in `attributes='
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:2116:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:2116:in `attributes='
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/base.rb:1926:in `initialize'
+    /app/controllers/album_arts_controller.rb:43:in `new'
+    /app/controllers/album_arts_controller.rb:43:in `create'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:28:22) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Columns (0.002087)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+ERROR: compiling _run_erb_47app47views47album_arts47new46html46erb RAISED compile error
+/Users/shadow/rails/cdcovers/app/views/album_arts/new.html.erb:5: syntax error, unexpected ',', expecting kEND
+ form_for(@album_art), :multipart => true do |f| ; _erbout.concat "\n"
+                      ^
+/Users/shadow/rails/cdcovers/app/views/album_arts/new.html.erb:38: syntax error, unexpected kEND, expecting $end
+Function body: def _run_erb_47app47views47album_arts47new46html46erb(local_assigns)
+_erbout = ''; _erbout.concat "<h1>New album_art</h1>\n"
+_erbout.concat "\n"
+_erbout.concat(( error_messages_for :album_art ).to_s); _erbout.concat "\n"
+_erbout.concat "\n"
+ form_for(@album_art), :multipart => true do |f| ; _erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    <b>User</b><br />\n"
+_erbout.concat "    "; _erbout.concat(( f.text_field :user_id ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    <b>Album name</b><br />\n"
+_erbout.concat "    "; _erbout.concat(( f.text_field :album_name ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    <b>Artist name</b><br />\n"
+_erbout.concat "    "; _erbout.concat(( f.text_field :artist_name ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    <b>Image</b><br />\n"
+_erbout.concat "    "; _erbout.concat(( file_column_field "album_art", :image ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    <b>Created at</b><br />\n"
+_erbout.concat "    "; _erbout.concat(( f.datetime_select :created_at ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    "; _erbout.concat(( f.submit "Create" ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+ end ; _erbout.concat "\n"
+_erbout.concat "\n"
+_erbout.concat(( link_to 'Back', album_arts_path ).to_s); _erbout.concat "\n"
+_erbout
+end
+Backtrace: /Users/shadow/rails/cdcovers/app/views/album_arts/new.html.erb:38:in `compile_template'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:630:in `compile_and_render_template'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/shadow/rails/cdcovers/app/controllers/album_arts_controller.rb:29:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+/usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+/usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+/usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+/usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+/usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+/usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+/usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+script/server:3
+
+
+ActionView::TemplateError (compile error
+/Users/shadow/rails/cdcovers/app/views/album_arts/new.html.erb:5: syntax error, unexpected ',', expecting kEND
+ form_for(@album_art), :multipart => true do |f| ; _erbout.concat "\n"
+                      ^
+/Users/shadow/rails/cdcovers/app/views/album_arts/new.html.erb:38: syntax error, unexpected kEND, expecting $end) on line #5 of album_arts/new.html.erb:
+2: 
+3: <%= error_messages_for :album_art %>
+4: 
+5: <% form_for(@album_art), :multipart => true do |f| %>
+6:   <p>
+7:     <b>User</b><br />
+8:     <%= f.text_field :user_id %>
+
+    app/views/album_arts/new.html.erb:38:in `compile_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:630:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/album_arts_controller.rb:29:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:31:06) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.002824)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.02422 (41 reqs/sec) | Rendering: 0.00695 (28%) | DB: 0.00282 (11%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:31:09) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"new", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "artist_name"=>"Pitty", "created_at(3i)"=>"2", "created_at(4i)"=>"19", "album_name"=>"Anacrônico", "created_at(5i)"=>"27", "image_temp"=>"", "user_id"=>"1", "image"=>"anacronico.jpg"}}
+  [4;35;1mAlbumArt Columns (0.002501)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.01813 (55 reqs/sec) | Rendering: 0.00433 (23%) | DB: 0.00250 (13%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:31:13) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000356)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.01230 (81 reqs/sec) | Rendering: 0.00087 (7%) | DB: 0.00036 (2%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:31:16) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.001533)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.01343 (74 reqs/sec) | Rendering: 0.00083 (6%) | DB: 0.00153 (11%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:31:17) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000343)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.01348 (74 reqs/sec) | Rendering: 0.00215 (15%) | DB: 0.00034 (2%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:31:17) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000337)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.01421 (70 reqs/sec) | Rendering: 0.00087 (6%) | DB: 0.00034 (2%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:31:17) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000339)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.01238 (80 reqs/sec) | Rendering: 0.00090 (7%) | DB: 0.00034 (2%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:31:17) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000343)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.01251 (79 reqs/sec) | Rendering: 0.00083 (6%) | DB: 0.00034 (2%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:31:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.002351)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.01802 (55 reqs/sec) | Rendering: 0.00428 (23%) | DB: 0.00235 (13%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:34:25) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Columns (0.002346)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.04204 (23 reqs/sec) | Rendering: 0.00432 (10%) | DB: 0.00235 (5%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:34:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mSQL (0.000165)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbumArt Columns (0.060568)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.39342 (2 reqs/sec) | Rendering: 0.00740 (1%) | DB: 0.06073 (15%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:35:29) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.002422)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.02088 (47 reqs/sec) | Rendering: 0.00595 (28%) | DB: 0.00242 (11%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:35:30) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Columns (0.002321)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.01891 (52 reqs/sec) | Rendering: 0.00426 (22%) | DB: 0.00232 (12%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:35:30) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.023777)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.03976 (25 reqs/sec) | Rendering: 0.00419 (10%) | DB: 0.02378 (59%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:35:31) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Columns (0.002289)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.01844 (54 reqs/sec) | Rendering: 0.00436 (23%) | DB: 0.00229 (12%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:35:40) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"new", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"2", "artist_name"=>"Pitty", "created_at(4i)"=>"19", "created_at(5i)"=>"31", "album_name"=>"Anacrônico", "image_temp"=>"", "user_id"=>"1", "image"=>#<File:/tmp/CGI.2226.5>}}
+  [4;36;1mAlbumArt Columns (0.002382)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.01788 (55 reqs/sec) | Rendering: 0.00421 (23%) | DB: 0.00238 (13%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:35:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000347)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.09514 (10 reqs/sec) | Rendering: 0.00871 (9%) | DB: 0.00035 (0%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:35:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000372)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.01229 (81 reqs/sec) | Rendering: 0.00089 (7%) | DB: 0.00037 (3%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:35:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.030402)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.04570 (21 reqs/sec) | Rendering: 0.00097 (2%) | DB: 0.03040 (66%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:35:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000343)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.01239 (80 reqs/sec) | Rendering: 0.00082 (6%) | DB: 0.00034 (2%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:35:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000350)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.01199 (83 reqs/sec) | Rendering: 0.00081 (6%) | DB: 0.00035 (2%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:35:47) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.002310)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.01804 (55 reqs/sec) | Rendering: 0.00420 (23%) | DB: 0.00231 (12%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:35:56) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"new", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"2", "artist_name"=>"Pitty", "created_at(4i)"=>"19", "created_at(5i)"=>"35", "album_name"=>"Anacrônico", "image_temp"=>"", "user_id"=>"1", "image"=>#<File:/tmp/CGI.2226.5>}}
+  [4;35;1mAlbumArt Columns (0.002386)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.01977 (50 reqs/sec) | Rendering: 0.00425 (21%) | DB: 0.00239 (12%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 19:36:06) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000372)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+Completed in 0.01386 (72 reqs/sec) | Rendering: 0.00092 (6%) | DB: 0.00037 (2%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:37:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Columns (0.002411)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.01843 (54 reqs/sec) | Rendering: 0.00484 (26%) | DB: 0.00241 (13%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:37:21) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"new", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"2", "artist_name"=>"", "created_at(4i)"=>"19", "created_at(5i)"=>"37", "album_name"=>"", "image_temp"=>"", "user_id"=>"", "image"=>""}}
+  [4;36;1mAlbumArt Columns (0.008589)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.02479 (40 reqs/sec) | Rendering: 0.00425 (17%) | DB: 0.00859 (34%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:37:23) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"new", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"2", "artist_name"=>"", "created_at(4i)"=>"19", "created_at(5i)"=>"37", "album_name"=>"", "image_temp"=>"", "user_id"=>"", "image"=>""}}
+  [4;35;1mAlbumArt Columns (0.003317)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.01906 (52 reqs/sec) | Rendering: 0.00444 (23%) | DB: 0.00332 (17%) | 200 OK [http://localhost/album_arts/new]
+  [4;36;1mSQL (0.000167)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbumArt Columns (0.001981)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000098)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000081)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000147)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000081)[0m   [0mCOMMIT[0m
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:42:04) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"new", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"2", "artist_name"=>"", "created_at(4i)"=>"19", "created_at(5i)"=>"37", "album_name"=>"", "image_temp"=>"", "user_id"=>"", "image"=>""}}
+  [4;36;1mAlbumArt Columns (0.002221)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.15983 (6 reqs/sec) | Rendering: 0.00424 (2%) | DB: 0.00222 (1%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:42:08) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"new", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"2", "artist_name"=>"", "created_at(4i)"=>"19", "created_at(5i)"=>"37", "album_name"=>"", "image_temp"=>"", "user_id"=>"", "image"=>""}}
+  [4;35;1mAlbumArt Columns (0.002287)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.02197 (45 reqs/sec) | Rendering: 0.00472 (21%) | DB: 0.00229 (10%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:42:10) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"new", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"2", "artist_name"=>"", "created_at(4i)"=>"19", "created_at(5i)"=>"37", "album_name"=>"", "image_temp"=>"", "user_id"=>"", "image"=>""}}
+  [4;36;1mAlbumArt Columns (0.002296)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.01816 (55 reqs/sec) | Rendering: 0.00419 (23%) | DB: 0.00230 (12%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:42:10) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"new", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"2", "artist_name"=>"", "created_at(4i)"=>"19", "created_at(5i)"=>"42", "album_name"=>"", "image_temp"=>"", "user_id"=>"", "image"=>""}}
+  [4;35;1mAlbumArt Columns (0.002240)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.01774 (56 reqs/sec) | Rendering: 0.00431 (24%) | DB: 0.00224 (12%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:42:11) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"new", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"2", "artist_name"=>"", "created_at(4i)"=>"19", "created_at(5i)"=>"42", "album_name"=>"", "image_temp"=>"", "user_id"=>"", "image"=>""}}
+  [4;36;1mAlbumArt Columns (0.002305)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.01995 (50 reqs/sec) | Rendering: 0.00422 (21%) | DB: 0.00231 (11%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:42:25) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"new", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"2", "artist_name"=>"", "created_at(4i)"=>"19", "created_at(5i)"=>"42", "album_name"=>"", "image_temp"=>"", "user_id"=>"", "image"=>""}}
+  [4;35;1mAlbumArt Columns (0.002353)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.09806 (10 reqs/sec) | Rendering: 0.00433 (4%) | DB: 0.00235 (2%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:42:27) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"new", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"2", "artist_name"=>"", "created_at(4i)"=>"19", "created_at(5i)"=>"42", "album_name"=>"", "image_temp"=>"", "user_id"=>"", "image"=>""}}
+  [4;36;1mAlbumArt Columns (0.005284)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.02102 (47 reqs/sec) | Rendering: 0.00419 (19%) | DB: 0.00528 (25%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:50:29) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Columns (0.008392)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.02511 (39 reqs/sec) | Rendering: 0.00432 (17%) | DB: 0.00839 (33%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:50:34) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.259028)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 1.25767 (0 reqs/sec) | Rendering: 0.08099 (6%) | DB: 0.25903 (20%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-02 19:53:18) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Columns (0.028851)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering album_arts/new
+Completed in 0.16813 (5 reqs/sec) | Rendering: 0.01436 (8%) | DB: 0.02885 (17%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#create (for 127.0.0.1 at 2008-01-02 19:53:33) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"3e1c22f10ddb30f8a2e3537a8bb6ae622f04af33", "action"=>"create", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"2", "artist_name"=>"Pitty", "created_at(4i)"=>"19", "created_at(5i)"=>"50", "album_name"=>"Anacrônico", "image_temp"=>"", "user_id"=>"1", "image"=>#<File:/tmp/CGI.2226.5>}}
+  [4;36;1mAlbumArt Columns (0.002338)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mSQL (0.005263)[0m   [0mBEGIN[0m
+  [4;36;1mAlbumArt Create (0.015288)[0m   [0;1mINSERT INTO `album_arts` (`score`, `updated_at`, `artist_name`, `album_name`, `image_filesize`, `user_id`, `image`, `image_size`, `created_at`) VALUES(NULL, '2008-01-02 19:53:34', 'Pitty', 'Anacrônico', NULL, 1, 'anacronico.jpg', NULL, '2008-01-02 19:50:00')[0m
+  [4;35;1mSQL (0.131625)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/album_arts/1
+Completed in 0.44310 (2 reqs/sec) | DB: 0.15451 (34%) | 302 Found [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#show (for 127.0.0.1 at 2008-01-02 19:53:34) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIidBbGJ1bUFydCB3YXMgc3VjY2Vzc2Z1bGx5IGNyZWF0%0AZWQuBjoKQHVzZWR7BjsHVA%3D%3D--d496657ae6683afc537fec4ca6687e1cd5701148
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.006084)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mAlbumArt Load (0.021897)[0m   [0mSELECT * FROM `album_arts` WHERE (`album_arts`.`id` = 1) [0m
+Rendering album_arts/show
+
+
+ActionView::TemplateError (undefined method `thumbnail' for #<AlbumArt:0x3d3ce50>) on line #33 of album_arts/show.html.erb:
+30: 
+31: <p>
+32:   <b>Thumbnail:</b>
+33:   <%=h @album_art.thumbnail %>
+34: </p>
+35: 
+36: <p>
+
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/attribute_methods.rb:205:in `method_missing'
+    app/views/album_arts/show.html.erb:33:in `_run_erb_47app47views47album_arts47show46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/album_arts_controller.rb:18:in `show'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumArtsController#show (for 127.0.0.1 at 2008-01-02 19:53:54) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.189425)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mAlbumArt Load (0.258530)[0m   [0mSELECT * FROM `album_arts` WHERE (`album_arts`.`id` = 1) [0m
+Rendering album_arts/show
+Completed in 0.57610 (1 reqs/sec) | Rendering: 0.11353 (19%) | DB: 0.44796 (77%) | 200 OK [http://localhost/album_arts/1]
+
+
+Processing AlbumArtsController#show (for 127.0.0.1 at 2008-01-02 19:55:00) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.012407)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mAlbumArt Load (0.001270)[0m   [0mSELECT * FROM `album_arts` WHERE (`album_arts`.`id` = 1) [0m
+Rendering album_arts/show
+
+
+ActionView::TemplateError (wrong number of arguments (1 for 2)) on line #18 of album_arts/show.html.erb:
+15: 
+16: <p>
+17:   <b>Image:</b>
+18:   <%= image_tag url_for_file_column(@album_art.image) %>
+19: </p>
+20: 
+21: <p>
+
+    app/views/album_arts/show.html.erb:18:in `url_for_file_column'
+    app/views/album_arts/show.html.erb:18:in `_run_erb_47app47views47album_arts47show46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/album_arts_controller.rb:18:in `show'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumArtsController#show (for 127.0.0.1 at 2008-01-02 19:55:38) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.008384)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mAlbumArt Load (0.354462)[0m   [0mSELECT * FROM `album_arts` WHERE (`album_arts`.`id` = 1) [0m
+Rendering album_arts/show
+Completed in 0.42981 (2 reqs/sec) | Rendering: 0.05541 (12%) | DB: 0.36285 (84%) | 200 OK [http://localhost/album_arts/1]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 23:06:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.295855)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.052088)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+
+
+ActionView::TemplateError (undefined method `thumbnail' for #<AlbumArt:0x3d2d6f8>) on line #24 of album_arts/index.html.erb:
+21:     <td><%=h album_art.image %></td>
+22:     <td><%=h album_art.image_size %></td>
+23:     <td><%=h album_art.image_filesize %></td>
+24:     <td><%=h album_art.thumbnail %></td>
+25:     <td><%=h album_art.score %></td>
+26:     <td><%=h album_art.created_at %></td>
+27:     <td><%= link_to 'Show', album_art %></td>
+
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/attribute_methods.rb:205:in `method_missing'
+    app/views/album_arts/index.html.erb:24:in `_run_erb_47app47views47album_arts47index46html46erb'
+    app/views/album_arts/index.html.erb:16:in `each'
+    app/views/album_arts/index.html.erb:16:in `_run_erb_47app47views47album_arts47index46html46erb'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:637:in `compile_and_render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:365:in `render_template'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_view/base.rb:316:in `render_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1100:in `render_for_file'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:858:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:872:in `render_with_no_layout'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/layout.rb:270:in `render_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:131:in `custom'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:156:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:150:in `respond'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/album_arts_controller.rb:7:in `index'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:1158:in `perform_action_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:697:in `call_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:689:in `perform_action_without_benchmark'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/rescue.rb:199:in `perform_action_without_caching'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:678:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/activerecord-2.0.2/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/caching.rb:677:in `perform_action'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:524:in `process_without_filters'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/filters.rb:685:in `process_without_session_management_support'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/session_management.rb:123:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/base.rb:388:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:171:in `handle_request'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:115:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:126:in `dispatch_cgi'
+    /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/dispatcher.rb:9:in `dispatch'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:78:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `synchronize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/rails.rb:76:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:618:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:617:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:736:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel.rb:720:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:271:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/configurator.rb:270:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:127:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/lib/mongrel/command.rb:211:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.0.1/bin/mongrel_rails:243
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:489:in `load'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:342:in `new_constants_in'
+    /usr/local/lib/ruby/gems/1.8/gems/activesupport-2.0.2/lib/active_support/dependencies.rb:496:in `require'
+    /usr/local/lib/ruby/gems/1.8/gems/rails-2.0.2/lib/commands/server.rb:39
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/local/lib/ruby/gems/1.8/gems/actionpack-2.0.2/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-02 23:07:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000340)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.021036)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Completed in 1.36786 (0 reqs/sec) | Rendering: 0.05427 (3%) | DB: 0.07346 (5%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#show (for 127.0.0.1 at 2008-01-03 01:36:28) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.501897)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mAlbumArt Load (1.105897)[0m   [0mSELECT * FROM `album_arts` WHERE (`album_arts`.`id` = 1) [0m
+Rendering album_arts/show
+Completed in 4.13443 (0 reqs/sec) | Rendering: 2.15719 (52%) | DB: 1.60779 (38%) | 200 OK [http://localhost/album_arts/1]
+
+
+Processing AlbumArtsController#show (for 127.0.0.1 at 2008-01-03 01:37:16) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.017849)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mAlbumArt Load (0.000931)[0m   [0mSELECT * FROM `album_arts` WHERE (`album_arts`.`id` = 1) [0m
+Rendering album_arts/show
+Completed in 0.08533 (11 reqs/sec) | Rendering: 0.02750 (32%) | DB: 0.01878 (22%) | 200 OK [http://localhost/album_arts/1]
+
+
+Processing AlbumArtsController#show (for 127.0.0.1 at 2008-01-03 01:37:52) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGIzYTNiZTk3ZWIzZWZmOGEyZmUzYjU5ODI3MDg3%0ANzIiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--23c5824df6e54705e49ab554d5da861fe7b00fa4
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.333946)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mAlbumArt Load (0.000784)[0m   [0mSELECT * FROM `album_arts` WHERE (`album_arts`.`id` = 1) [0m
+Rendering album_arts/show
+Completed in 0.42324 (2 reqs/sec) | Rendering: 0.03620 (8%) | DB: 0.33473 (79%) | 200 OK [http://localhost/album_arts/1]

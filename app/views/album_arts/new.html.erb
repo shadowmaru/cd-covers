@@ -2,7 +2,7 @@
 
 <%= error_messages_for :album_art %>
 
-<% form_for(@album_art) do |f| %>
+<% form_for :album_art, @album_art, :url=> album_arts_path, :html => {:multipart => true} do |f| %>
   <p>
     <b>User</b><br />
     <%= f.text_field :user_id %>
@@ -20,27 +20,7 @@
 
   <p>
     <b>Image</b><br />
-    <%= f.text_field :image %>
-  </p>
-
-  <p>
-    <b>Image size</b><br />
-    <%= f.text_field :image_size %>
-  </p>
-
-  <p>
-    <b>Image filesize</b><br />
-    <%= f.text_field :image_filesize %>
-  </p>
-
-  <p>
-    <b>Thumbnail</b><br />
-    <%= f.text_field :thumbnail %>
-  </p>
-
-  <p>
-    <b>Score</b><br />
-    <%= f.text_field :score %>
+    <%= file_column_field "album_art", :image %>
   </p>
 
   <p>
