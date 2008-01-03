@@ -134,17 +134,29 @@ describe AlbumArtsController do
       get :new
     end
 
+    def do_login
+      controller.stub!(:logged_in?).and_return(true)
+    end
+
+    it "should require login" do
+      do_get
+      response.should be_redirect
+    end
+
     it "should be successful" do
+      do_login
       do_get
       response.should be_success
     end
   
     it "should render new template" do
+      do_login
       do_get
       response.should render_template('new')
     end
   
     it "should create an new album_art" do
+      do_login
       AlbumArt.should_receive(:new).and_return(@album_art)
       do_get
     end
@@ -155,6 +167,7 @@ describe AlbumArtsController do
     end
   
     it "should assign the new album_art for the view" do
+      do_login
       do_get
       assigns[:album_art].should equal(@album_art)
     end

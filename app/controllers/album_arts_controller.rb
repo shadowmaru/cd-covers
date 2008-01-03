@@ -1,4 +1,7 @@
 class AlbumArtsController < ApplicationController
+  
+  before_filter :login_required, :only => ['new']
+  
   # GET /album_arts
   # GET /album_arts.xml
   def index
