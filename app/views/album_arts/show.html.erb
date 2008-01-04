@@ -1,6 +1,6 @@
 <p>
   <b>User:</b>
-  <%=h @album_art.user_id %>
+  <%=h @album_art.user.login %>
 </p>
 
 <p>
@@ -15,7 +15,7 @@
 
 <p>
   <b>Image:</b>
-  <%= @album_art.image %>
+  <%= image_tag url_for_file_column(@album_art, "image", "standard") %>
 </p>
 
 <p>
@@ -25,7 +25,7 @@
 
 <p>
   <b>Image filesize:</b>
-  <%=h @album_art.image_filesize %>
+  <%= number_to_human_size(@album_art.image_filesize) %>
 </p>
 
 <p>
@@ -35,7 +35,7 @@
 
 <p>
   <b>Created at:</b>
-  <%=h @album_art.created_at %>
+  <%= @album_art.created_at.strftime("%d-%m-%Y %H:%M") %>
 </p>
 
 

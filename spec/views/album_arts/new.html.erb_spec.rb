@@ -18,12 +18,7 @@ describe "/album_arts/new.html.erb" do
   it "should render new form" do
     render "/album_arts/new.html.erb"
     
-    response.should have_tag("form[action=?][method=post]", album_arts_path) do
-      with_tag("input#album_art_album_name[name=?]", "album_art[album_name]")
-      with_tag("input#album_art_artist_name[name=?]", "album_art[artist_name]")
-      with_tag("input#album_art_image_temp[name=?]", "album_art[image_temp]")
-      with_tag("input#album_art_image[name=?]", "album_art[image]")
-    end
+    response.should have_tag("form[action=?][method=post]", album_arts_path)
   end
 end
 

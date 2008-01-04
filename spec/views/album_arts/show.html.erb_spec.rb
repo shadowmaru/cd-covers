@@ -17,14 +17,5 @@ describe "/album_arts/show.html.erb" do
     assigns[:album_art] = @album_art
   end
 
-  it "should render attributes in <p>" do
-    render "/album_arts/show.html.erb"
-    response.should have_text(/MyString/)
-    response.should have_text(/MyString/)
-    response.should have_text(/MyString/)
-    response.should have_text(/MyString/)
-    response.should have_text(/MyString/)
-    response.should have_text(/1/)
-  end
 end
 

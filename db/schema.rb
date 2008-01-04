@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 3) do
+ActiveRecord::Schema.define(:version => 4) do
 
   create_table "album_arts", :force => true do |t|
     t.integer  "user_id"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(:version => 3) do
     t.string   "image"
     t.string   "image_size"
     t.string   "image_filesize"
-    t.integer  "score"
+    t.integer  "score",          :default => 0, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

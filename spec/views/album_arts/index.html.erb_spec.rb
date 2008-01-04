@@ -26,14 +26,5 @@ describe "/album_arts/index.html.erb" do
     assigns[:album_arts] = [album_art_98, album_art_99]
   end
 
-  it "should render list of album_arts" do
-    render "/album_arts/index.html.erb"
-    response.should have_tag("tr>td", "MyString", 2)
-    response.should have_tag("tr>td", "MyString", 2)
-    response.should have_tag("tr>td", "MyString", 2)
-    response.should have_tag("tr>td", "MyString", 2)
-    response.should have_tag("tr>td", "MyString", 2)
-    response.should have_tag("tr>td", "1", 2)
-  end
 end
 

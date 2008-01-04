@@ -17,9 +17,9 @@
     <td><%=h album_art.user_id %></td>
     <td><%=h album_art.album_name %></td>
     <td><%=h album_art.artist_name %></td>
-    <td><%=h album_art.image %></td>
+    <td><%= image_tag url_for_file_column(album_art,"image","thumbnail") %></td>
     <td><%=h album_art.image_size %></td>
-    <td><%=h album_art.image_filesize %></td>
+    <td><%=h number_to_human_size(album_art.image_filesize) %></td>
     <td><%=h album_art.score %></td>
     <td><%=h album_art.created_at %></td>
     <td><%= link_to 'Show', album_art %></td>

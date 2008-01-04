@@ -2,7 +2,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :album_arts
 
 
-  map.resources :users
+  map.resources :users, :has_many => :album_arts
   map.resource  :session
 
   map.signup '/signup', :controller => 'users', :action => 'new'

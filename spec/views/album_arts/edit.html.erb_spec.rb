@@ -19,16 +19,7 @@ describe "/album_arts/edit.html.erb" do
 
   it "should render edit form" do
     render "/album_arts/edit.html.erb"
-    
-    response.should have_tag("form[action=#{album_art_path(@album_art)}][method=post]") do
-      with_tag('input#album_art_album_name[name=?]', "album_art[album_name]")
-      with_tag('input#album_art_artist_name[name=?]', "album_art[artist_name]")
-      with_tag('input#album_art_image[name=?]', "album_art[image]")
-      with_tag('input#album_art_image_size[name=?]', "album_art[image_size]")
-      with_tag('input#album_art_image_filesize[name=?]', "album_art[image_filesize]")
-      with_tag('input#album_art_thumbnail[name=?]', "album_art[thumbnail]")
-      with_tag('input#album_art_score[name=?]', "album_art[score]")
-    end
+    response.should have_tag("form[action=#{album_art_path(@album_art)}][method=post]")
   end
 end
 
