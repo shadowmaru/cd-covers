@@ -8,7 +8,9 @@ module AlbumArtSpecHelper
       :album_name => "Anacrônico",
       :artist_name => "Pitty",
       :score => 0,
-      :image => fixture_file_upload("/files/anacronico.jpg", "image/jpeg")
+      :image => fixture_file_upload("/files/anacronico.jpg", "image/jpeg"),
+      :image_filesize => '29600',
+      :image_size => '300x300'
     }
   end
 
@@ -50,7 +52,7 @@ describe AlbumArt do
 
   it "should get the image file size" do
     @album_art.attributes = valid_album_art_attributes
-    @album_art.image_filesize.should == '32299'
+    @album_art.image_filesize.should == '29600'
   end
 
   it "should get the image dimensions" do

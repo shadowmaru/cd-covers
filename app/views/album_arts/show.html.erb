@@ -35,7 +35,7 @@
 
 <p>
   <b>Created at:</b>
-  <%= @album_art.created_at.strftime("%d-%m-%Y %H:%M") %>
+  <%= format_datetime(@album_art.created_at) %>
 </p>
 
 
