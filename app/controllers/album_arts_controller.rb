@@ -1,6 +1,6 @@
 class AlbumArtsController < ApplicationController
   
-  before_filter :login_required, :only => 'new'
+  before_filter :login_required, :only => ['new','edit']
   
   # GET /album_arts
   # GET /album_arts.xml

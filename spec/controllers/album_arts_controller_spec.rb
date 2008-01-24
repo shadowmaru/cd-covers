@@ -184,22 +184,35 @@ describe AlbumArtsController do
       get :edit, :id => "1"
     end
 
+    def do_login
+      controller.stub!(:logged_in?).and_return(true)
+    end
+
+    it "should require login" do
+      do_get
+      response.should be_redirect
+    end
+
     it "should be successful" do
+      do_login
       do_get
       response.should be_success
     end
   
     it "should render edit template" do
+      do_login
       do_get
       response.should render_template('edit')
     end
   
     it "should find the album_art requested" do
+      do_login
       AlbumArt.should_receive(:find).and_return(@album_art)
       do_get
     end
   
     it "should assign the found AlbumArt for the view" do
+      do_login
       do_get
       assigns[:album_art].should equal(@album_art)
     end
@@ -216,7 +229,7 @@ describe AlbumArtsController do
   
       def do_post
         @album_art.should_receive(:save).and_return(true)
-        post :create, :album_art => {}
+        post :create, :album_art => { }
       end
   
       it "should create a new album_art" do

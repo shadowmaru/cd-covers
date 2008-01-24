@@ -8622,3 +8622,671 @@ Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-08 15:16:56) [GET
 Rendering template within layouts/application
 Rendering album_arts/index
 Completed in 0.05131 (19 reqs/sec) | Rendering: 0.00706 (13%) | DB: 0.02597 (50%) | 200 OK [http://localhost/]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:19:08) [GET]
+  Session ID: 5eaa75713b35433e8359e0f682478239
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mSQL (0.000432)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbumArt Load (0.093300)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+Completed in 0.21503 (4 reqs/sec) | Rendering: 0.04970 (23%) | DB: 0.09373 (43%) | 200 OK [http://localhost/album_arts/]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-14 18:19:14) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7AA%3D%3D--af9f6d7f8bff8178e7745ef837d2727e5670c44a
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+Redirected to http://localhost:3000/sessions/new
+Filter chain halted as [#<ActionController::Filters::ClassMethods::SymbolFilter:0xb712b9b8 @filter=:login_required>] rendered_or_redirected.
+Completed in 0.00409 (244 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/album_arts/new]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-01-14 18:19:14) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvIhQvYWxidW1fYXJ0cy9uZXciCmZsYXNoSUM6J0Fj%0AdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA%3D--8d66741a28d01ee4413aca02f82a99aa5ce4b583
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.03850 (25 reqs/sec) | Rendering: 0.03424 (88%) | DB: 0.00000 (0%) | 200 OK [http://localhost/sessions/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-01-14 18:19:24) [POST]
+  Session ID: BAh7CCIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoOcmV0dXJuX3RvIhQvYWxidW1fYXJ0cy9uZXc6%0ADGNzcmZfaWQiJWIzNTM0M2VkYzE1NjRkNmUyZWY0MzhiYmYxNjEyMjVm--332376ec0d8f668beaae089f8584d39cea26fdd3
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"538d6c76c355a4e0791c6b5bdaf2ee26ffa35afb", "action"=>"create", "controller"=>"sessions", "password"=>"pennylane", "login"=>"shadow"}
+  [4;36;1mUser Columns (0.058107)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001167)[0m   [0mSELECT * FROM `users` WHERE (`users`.`login` = 'shadow') LIMIT 1[0m
+Redirected to http://localhost:3000/album_arts/new
+Completed in 0.09511 (10 reqs/sec) | DB: 0.05927 (62%) | 302 Found [http://localhost/sessions]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-14 18:19:24) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIXTG9nYWRvIGNv%0AbSBzdWNlc3NvBjoKQHVzZWR7BjsIVDoMY3NyZl9pZCIlYjM1MzQzZWRjMTU2%0ANGQ2ZTJlZjQzOGJiZjE2MTIyNWY%3D--14a8a69184ef21f2e1d9b947ef4f5ab57313b7e6
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mUser Columns (0.005353)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000742)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mAlbumArt Columns (0.002569)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering template within layouts/application
+Rendering album_arts/new
+Completed in 0.06849 (14 reqs/sec) | Rendering: 0.02250 (32%) | DB: 0.00866 (12%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#create (for 127.0.0.1 at 2008-01-14 18:21:37) [POST]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"538d6c76c355a4e0791c6b5bdaf2ee26ffa35afb", "action"=>"create", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"14", "artist_name"=>"The Beatles", "created_at(4i)"=>"18", "created_at(5i)"=>"19", "album_name"=>"A Hard Day's Night", "image_temp"=>"", "user_id"=>"1", "image"=>#<File:/tmp/CGI.7705.5>}}
+  [4;35;1mAlbumArt Columns (0.292486)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mSQL (0.095786)[0m   [0;1mBEGIN[0m
+  [4;35;1mAlbumArt Create (0.037073)[0m   [0mINSERT INTO `album_arts` (`score`, `thumbnail`, `updated_at`, `artist_name`, `album_name`, `image_filesize`, `user_id`, `image`, `image_size`, `created_at`) VALUES(NULL, NULL, '2008-01-14 18:21:39', 'The Beatles', 'A Hard Day\'s Night', '42278', 1, 'a_hard_days_night.jpg', '300x300', '2008-01-14 18:19:00')[0m
+  [4;36;1mSQL (0.082275)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/album_arts/1
+Completed in 1.37200 (0 reqs/sec) | DB: 0.50762 (36%) | 302 Found [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#show (for 127.0.0.1 at 2008-01-14 18:21:39) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSInQWxidW1BcnQg%0Ad2FzIHN1Y2Nlc3NmdWxseSBjcmVhdGVkLgY6CkB1c2VkewY7CFQ6DGNzcmZf%0AaWQiJWIzNTM0M2VkYzE1NjRkNmUyZWY0MzhiYmYxNjEyMjVm--8b5dd9295ab8832bd2f2eb8264e91d477b703c9c
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Columns (0.008145)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mAlbumArt Load (0.047818)[0m   [0;1mSELECT * FROM `album_arts` WHERE (`album_arts`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering album_arts/show
+  [4;35;1mUser Columns (0.002006)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001045)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.000603)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.14388 (6 reqs/sec) | Rendering: 0.05670 (39%) | DB: 0.05962 (41%) | 200 OK [http://localhost/album_arts/1]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:21:48) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000626)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.021665)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002399)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001038)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000699)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.07988 (12 reqs/sec) | Rendering: 0.03361 (42%) | DB: 0.02643 (33%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:27:27) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000548)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.128934)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.002691)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001068)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.004310)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.19852 (5 reqs/sec) | Rendering: 0.04263 (21%) | DB: 0.13755 (69%) | 200 OK [http://localhost/album_arts]
+  [4;36;1mSQL (0.000416)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;35;1mSQL (0.041867)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.000447)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.000365)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to RemoveThumbnailFromAlbumArt (3)
+  [4;36;1mSQL (1.704631)[0m   [0;1mALTER TABLE `album_arts` DROP `thumbnail`[0m
+  [4;35;1mSQL (0.000568)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.000400)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddDefaultValueToAlbumArtScore (4)
+  [4;35;1mSQL (0.073609)[0m   [0mALTER TABLE `album_arts` CHANGE `score` `score` int(11) DEFAULT 0 NOT NULL[0m
+  [4;36;1mSQL (0.000536)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.000422)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.000656)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002901)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mSQL (0.002560)[0m   [0;1mdescribe `album_arts`[0m
+  [4;35;1mSQL (0.000736)[0m   [0mSHOW KEYS FROM `album_arts`[0m
+  [4;36;1mSQL (0.002552)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002420)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000700)[0m   [0;1mSHOW KEYS FROM `users`[0m
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:33:21) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000572)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002205)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002502)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001050)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000623)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.06420 (15 reqs/sec) | Rendering: 0.03761 (58%) | DB: 0.00695 (10%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:34:30) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.001115)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002091)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.018144)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001047)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.002414)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.08286 (12 reqs/sec) | Rendering: 0.04025 (48%) | DB: 0.02481 (29%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:35:03) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000543)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.003487)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002764)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001159)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.001531)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.08437 (11 reqs/sec) | Rendering: 0.03468 (41%) | DB: 0.00948 (11%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:39:38) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.018375)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002108)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.002460)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001061)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.020338)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.12398 (8 reqs/sec) | Rendering: 0.04709 (37%) | DB: 0.04434 (35%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:41:21) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000537)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002198)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002940)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001065)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.071405)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.17191 (5 reqs/sec) | Rendering: 0.04861 (28%) | DB: 0.07814 (45%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:43:57) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.004260)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002334)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.026874)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001060)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.000772)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.09063 (11 reqs/sec) | Rendering: 0.03381 (37%) | DB: 0.03530 (38%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:51:19) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000630)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002180)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002498)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001049)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000849)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.06796 (14 reqs/sec) | Rendering: 0.04088 (60%) | DB: 0.00721 (10%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:53:19) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000602)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.007257)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.002500)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000652)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.000661)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.08528 (11 reqs/sec) | Rendering: 0.04263 (49%) | DB: 0.01167 (13%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:54:28) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000610)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002664)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002484)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001340)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000647)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.06675 (14 reqs/sec) | Rendering: 0.04065 (60%) | DB: 0.00775 (11%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:56:20) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.015741)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002420)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.004081)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001405)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.004176)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.14191 (7 reqs/sec) | Rendering: 0.04377 (30%) | DB: 0.02782 (19%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:57:18) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000539)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.019719)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002480)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001054)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000941)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.08537 (11 reqs/sec) | Rendering: 0.04235 (49%) | DB: 0.02473 (28%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:57:50) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.001838)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002385)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.026639)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001160)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.000621)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.09107 (10 reqs/sec) | Rendering: 0.03910 (42%) | DB: 0.03264 (35%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:58:15) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000546)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002147)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002494)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001057)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000630)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.27256 (3 reqs/sec) | Rendering: 0.04337 (15%) | DB: 0.00687 (2%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:58:48) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000624)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002635)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.002520)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001574)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.000753)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.07039 (14 reqs/sec) | Rendering: 0.04301 (61%) | DB: 0.00811 (11%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:59:19) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000535)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002084)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002445)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001061)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.004280)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.09095 (10 reqs/sec) | Rendering: 0.03873 (42%) | DB: 0.01040 (11%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 18:59:48) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000600)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002691)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.002613)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.012628)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.000673)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.26077 (3 reqs/sec) | Rendering: 0.06440 (24%) | DB: 0.01921 (7%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 19:00:32) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000601)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002603)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002467)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000651)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000667)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.06990 (14 reqs/sec) | Rendering: 0.04283 (61%) | DB: 0.00699 (9%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 19:01:00) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000588)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002635)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.002450)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000632)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.001128)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.06978 (14 reqs/sec) | Rendering: 0.04421 (63%) | DB: 0.00743 (10%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 19:01:28) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000616)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002743)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002538)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001412)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000668)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.23714 (4 reqs/sec) | Rendering: 0.04542 (19%) | DB: 0.00798 (3%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 19:01:54) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000609)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002576)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.002471)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001407)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.000673)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.06845 (14 reqs/sec) | Rendering: 0.04170 (60%) | DB: 0.00774 (11%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 19:02:21) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.001751)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002636)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002471)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001342)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000653)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.07041 (14 reqs/sec) | Rendering: 0.04089 (58%) | DB: 0.00885 (12%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 19:03:33) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000599)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002659)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.002483)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000663)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.000669)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.26373 (3 reqs/sec) | Rendering: 0.07498 (28%) | DB: 0.00707 (2%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 19:04:11) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000608)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002634)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002561)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001391)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000655)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.06985 (14 reqs/sec) | Rendering: 0.04195 (60%) | DB: 0.00785 (11%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 19:04:50) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000609)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002686)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.002515)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000640)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.000679)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.06678 (14 reqs/sec) | Rendering: 0.04118 (61%) | DB: 0.00713 (10%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 19:08:11) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000621)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002617)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002662)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001540)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000681)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.27029 (3 reqs/sec) | Rendering: 0.24386 (90%) | DB: 0.00812 (3%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-14 19:09:32) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mUser Columns (0.002513)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000683)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mAlbumArt Columns (0.002586)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering template within layouts/application
+Rendering album_arts/new
+Completed in 0.06056 (16 reqs/sec) | Rendering: 0.01841 (30%) | DB: 0.00578 (9%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#create (for 127.0.0.1 at 2008-01-14 19:11:59) [POST]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"538d6c76c355a4e0791c6b5bdaf2ee26ffa35afb", "action"=>"create", "controller"=>"album_arts", "album_art"=>{"created_at(1i)"=>"2008", "created_at(2i)"=>"1", "created_at(3i)"=>"14", "artist_name"=>"The Beatles", "created_at(4i)"=>"19", "created_at(5i)"=>"09", "album_name"=>"With the Beatles", "image_temp"=>"", "user_id"=>"1", "image"=>#<File:/tmp/CGI.7705.5>}}
+  [4;36;1mAlbumArt Columns (0.002489)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mSQL (0.000240)[0m   [0mBEGIN[0m
+  [4;36;1mAlbumArt Create (0.000623)[0m   [0;1mINSERT INTO `album_arts` (`score`, `updated_at`, `artist_name`, `album_name`, `image_filesize`, `user_id`, `image`, `image_size`, `created_at`) VALUES(0, '2008-01-14 19:11:59', 'The Beatles', 'With the Beatles', '21235', 1, 'with_the_beatles.jpg', '300x299', '2008-01-14 19:09:00')[0m
+  [4;35;1mSQL (0.054198)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/album_arts/2
+Completed in 0.52474 (1 reqs/sec) | DB: 0.05755 (10%) | 302 Found [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#show (for 127.0.0.1 at 2008-01-14 19:11:59) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSInQWxidW1BcnQg%0Ad2FzIHN1Y2Nlc3NmdWxseSBjcmVhdGVkLgY6CkB1c2VkewY7CFQ6DGNzcmZf%0AaWQiJWIzNTM0M2VkYzE1NjRkNmUyZWY0MzhiYmYxNjEyMjVm--8b5dd9295ab8832bd2f2eb8264e91d477b703c9c
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Columns (0.003254)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mAlbumArt Load (0.000712)[0m   [0mSELECT * FROM `album_arts` WHERE (`album_arts`.`id` = 2) [0m
+Rendering template within layouts/application
+Rendering album_arts/show
+  [4;36;1mUser Columns (0.002389)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.001402)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000685)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.06314 (15 reqs/sec) | Rendering: 0.03373 (53%) | DB: 0.00844 (13%) | 200 OK [http://localhost/album_arts/2]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 19:12:15) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000613)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002566)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.002461)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001467)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000661)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.06553 (15 reqs/sec) | Rendering: 0.03883 (59%) | DB: 0.00777 (11%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 19:13:53) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--8b339b4a0d3052247c32be5d647ce76df1b80ee7
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.005047)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.003339)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.023566)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001058)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.004257)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.09443 (10 reqs/sec) | Rendering: 0.03813 (40%) | DB: 0.03727 (39%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-14 19:15:30) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiViMzUzNDNlZGMxNTY0ZDZlMmVmNDM4YmJmMTYxMjI1Zg%3D%3D--4e4f226956db7a80ac14a7e48a5cc9f4b8f3bb90
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000773)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002312)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.023126)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.001245)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mUser Load (0.000637)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.09911 (10 reqs/sec) | Rendering: 0.04613 (46%) | DB: 0.02809 (28%) | 200 OK [http://localhost/album_arts]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-18 19:16:34) [GET]
+  Session ID: 1804888e35acb1a2cc40ca86e09f3342
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mSQL (0.437837)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbumArt Load (1.407431)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.237764)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.002565)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.144793)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 3.14674 (0 reqs/sec) | Rendering: 0.06348 (2%) | DB: 2.23039 (70%) | 200 OK [http://localhost/]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-18 19:19:41) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlMDM1Y2Y1ODQyNDQ0NjJmZDNj%0AMDc4Yjc3M2U4ODk2ODM%3D--905da1df31e4ce15f4316cbbb9ca6c6a6485dffb
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000601)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002744)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002466)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000678)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 0.06144 (16 reqs/sec) | Rendering: 0.03686 (59%) | DB: 0.00649 (10%) | 200 OK [http://localhost/]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-18 19:19:53) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlMDM1Y2Y1ODQyNDQ0NjJmZDNj%0AMDc4Yjc3M2U4ODk2ODM%3D--905da1df31e4ce15f4316cbbb9ca6c6a6485dffb
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;35;1mAlbumArt Load (0.000558)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.002320)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.002635)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.002710)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 0.06522 (15 reqs/sec) | Rendering: 0.03803 (58%) | DB: 0.00822 (12%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-01-18 19:20:01) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlMDM1Y2Y1ODQyNDQ0NjJmZDNj%0AMDc4Yjc3M2U4ODk2ODM%3D--905da1df31e4ce15f4316cbbb9ca6c6a6485dffb
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.04073 (24 reqs/sec) | Rendering: 0.03569 (87%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-01-18 19:20:11) [POST]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlMDM1Y2Y1ODQyNDQ0NjJmZDNj%0AMDc4Yjc3M2U4ODk2ODM%3D--905da1df31e4ce15f4316cbbb9ca6c6a6485dffb
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"855802117f7574f2c3f2e91f819e33eaff3e95c9", "action"=>"create", "controller"=>"sessions", "password"=>"pennylane", "login"=>"shadow"}
+  [4;36;1mUser Columns (0.002721)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000657)[0m   [0mSELECT * FROM `users` WHERE (`users`.`login` = 'shadow') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.02781 (35 reqs/sec) | DB: 0.00338 (12%) | 302 Found [http://localhost/sessions]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-18 19:20:11) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIXTG9nYWRvIGNv%0AbSBzdWNlc3NvBjoKQHVzZWR7BjsIVDoMY3NyZl9pZCIlMDM1Y2Y1ODQyNDQ0%0ANjJmZDNjMDc4Yjc3M2U4ODk2ODM%3D--9d57045ed6686bfcab00f56b209e61d9100e35d1
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.003011)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002832)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002843)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000783)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.000655)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.20455 (4 reqs/sec) | Rendering: 0.17675 (86%) | DB: 0.01012 (4%) | 200 OK [http://localhost/]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-18 19:20:17) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiUwMzVjZjU4NDI0NDQ2MmZkM2MwNzhiNzczZTg4OTY4Mw%3D%3D--bd7c1e2e2cf27538332984bcc5b36de72f95e6d8
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mUser Columns (0.002438)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000643)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mAlbumArt Columns (0.003179)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering template within layouts/application
+Rendering album_arts/new
+Completed in 0.09511 (10 reqs/sec) | Rendering: 0.05092 (53%) | DB: 0.00626 (6%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-18 19:25:19) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOgxjc3JmX2lk%0AIiUwMzVjZjU4NDI0NDQ2MmZkM2MwNzhiNzczZTg4OTY4Mw%3D%3D--e920f399027b7d224674b30b3d61fd3ff7606a6a
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;35;1mUser Columns (0.002450)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000630)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mAlbumArt Columns (0.002983)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+Rendering template within layouts/application
+Rendering album_arts/new
+Completed in 0.06137 (16 reqs/sec) | Rendering: 0.02033 (33%) | DB: 0.00606 (9%) | 200 OK [http://localhost/album_arts/new]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-22 16:09:07) [GET]
+  Session ID: ecee60cd43416e0100995bc130cf299b
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mSQL (0.297508)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mAlbumArt Load (1.268257)[0m   [0mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;36;1mAlbumArt Columns (0.111510)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+  [4;35;1mUser Columns (0.060587)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.109055)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+Completed in 3.12069 (0 reqs/sec) | Rendering: 0.10773 (3%) | DB: 1.84692 (59%) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-01-22 16:09:19) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlODEzMjczOGZkMDYyZjM2MTgx%0AMDdmNjUxMTFiNjRhMGQ%3D--8606e783a6b67b7d17591a98759af5a97ae6453a
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.03930 (25 reqs/sec) | Rendering: 0.03481 (88%) | DB: 0.00000 (0%) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-01-22 16:09:25) [POST]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo%0ASGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlODEzMjczOGZkMDYyZjM2MTgx%0AMDdmNjUxMTFiNjRhMGQ%3D--8606e783a6b67b7d17591a98759af5a97ae6453a
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"aca1eccfbf1520ce1c3ee13a42e599d3dbda0f58", "action"=>"create", "controller"=>"sessions", "password"=>"pennylane", "login"=>"shadow"}
+  [4;36;1mUser Columns (0.002495)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000682)[0m   [0mSELECT * FROM `users` WHERE (`users`.`login` = 'shadow') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 0.02997 (33 reqs/sec) | DB: 0.00318 (10%) | 302 Found [http://localhost/sessions]
+
+
+Processing AlbumArtsController#index (for 127.0.0.1 at 2008-01-22 16:09:25) [GET]
+  Session ID: BAh7CToJdXNlcmkGOg5yZXR1cm5fdG8wIgpmbGFzaElDOidBY3Rpb25Db250%0Acm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6C25vdGljZSIXTG9nYWRvIGNv%0AbSBzdWNlc3NvBjoKQHVzZWR7BjsIVDoMY3NyZl9pZCIlODEzMjczOGZkMDYy%0AZjM2MTgxMDdmNjUxMTFiNjRhMGQ%3D--0bc83294c1ca4c92bed00c5e127cf7cbcdf7f836
+  Parameters: {"action"=>"index", "controller"=>"album_arts"}
+  [4;36;1mAlbumArt Load (0.000594)[0m   [0;1mSELECT * FROM `album_arts` [0m
+Rendering template within layouts/application
+Rendering album_arts/index
+  [4;35;1mAlbumArt Columns (0.002554)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mUser Columns (0.002492)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000684)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) [0m
+  [4;35;1mUser Load (0.000646)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.05948 (16 reqs/sec) | Rendering: 0.03470 (58%) | DB: 0.00697 (11%) | 200 OK [http://localhost/]
+
+
+Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-22 16:09:32) [GET]
+  Session ID: BAh7CToJdXNlcmkGIgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFz%0AaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsAOg5yZXR1cm5fdG8wOgxjc3JmX2lk%0AIiU4MTMyNzM4ZmQwNjJmMzYxODEwN2Y2NTExMWI2NGEwZA%3D%3D--6db5de036343f75809b027612101efd94f281eb4
+  Parameters: {"action"=>"new", "controller"=>"album_arts"}
+  [4;36;1mUser Columns (0.002645)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000647)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mAlbumArt Columns (0.003066)[0m   [0;1mSHOW FIELDS FROM `album_arts`[0m
+Rendering template within layouts/application
+Rendering album_arts/new
+Completed in 0.09427 (10 reqs/sec) | Rendering: 0.04979 (52%) | DB: 0.00636 (6%) | 200 OK [http://localhost/album_arts/new]

@@ -1,31 +1,22 @@
-<table>
-  <tr>
-    <th>User</th>
-    <th>Album name</th>
-    <th>Artist name</th>
-    <th>Image</th>
-    <th>Image size</th>
-    <th>Image filesize</th>
-    <th>Score</th>
-    <th>Created at</th>
-  </tr>
-
 <% for album_art in @album_arts %>
-  <tr>
-    <td><%=h album_art.user.login %></td>
-    <td><%=h album_art.album_name %></td>
-    <td><%=h album_art.artist_name %></td>
-    <td><%= link_to image_tag(url_for_file_column(album_art,"image","thumbnail")), album_art %></td>
-    <td><%=h album_art.image_size %></td>
-    <td><%=h number_to_human_size(album_art.image_filesize) %></td>
-    <td><%=h album_art.score %></td>
-    <td><%= format_datetime(album_art.created_at) %></td>
-    <td><%= link_to 'Edit', edit_album_art_path(album_art) %></td>
-    <td><%= link_to 'Destroy', album_art, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<div class="album_art">
+    <%= link_to image_tag(url_for_file_column(album_art,"image","thumbnail"), :id => "album_art_#{album_art.id}"), album_art %>
+    <dl>
+      <dt>Usuário:</dt>
+      <dd><%=h album_art.user.login %></dd>
+      <dt>Álbum:</dt>
+      <dd><%=h album_art.album_name %></dd>
+      <dt>Artista:</dt>
+      <dd><%=h album_art.artist_name %></dd>
+      <dt>Dimensões:</dt>
+      <dd><%=h album_art.image_size %></dd>
+      <dt>Arquivo:</dt><dd><%=h number_to_human_size(album_art.image_filesize) %></dd>
+      <dt>Nota:</dt><dd><%=h album_art.score %></dd>
+      <dt>Criado em:</dt><dd><%= format_datetime(album_art.created_at) %></dd>
+    </dl>
+    <p><%= link_to 'Editar', edit_album_art_path(album_art) %>, 
+    <%= link_to 'Apagar', album_art, :confirm => 'Are you sure?', :method => :delete %></p>
+  
+</div>
 <% end %>
-</table>
 
-<br />
-
-<%= link_to 'Nova capa', new_album_art_path %>

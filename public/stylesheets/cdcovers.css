@@ -41,3 +41,17 @@ h2{
     width:1000px;
     margin:auto;
 }
+
+.album_art {
+    font-size:0.9em;
+    width: 150px;
+    display:table;
+    float:left;
+    margin:0px 10px;
+}
+
+.album_art dt, .album_art dd {float:left;}
+
+.album_art dt {clear:left; margin-right:3px;}
+.album_art dd {clear:right;}
+.album_art p {clear:both;}
