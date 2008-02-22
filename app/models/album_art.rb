@@ -4,6 +4,7 @@ class AlbumArt < ActiveRecord::Base
   has_one :album_art_image
  # before_save :set_image_filesize, :set_image_size
 
+  validates_associated :album_art_image
   validates_presence_of :user_id, :album_name, :artist_name, :message => "deve ser preenchido"
   
 #  file_column :image, :magick => {

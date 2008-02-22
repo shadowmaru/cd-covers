@@ -9,7 +9,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 4) do
+ActiveRecord::Schema.define(:version => 7) do
+
+  create_table "album_art_images", :force => true do |t|
+    t.integer "size"
+    t.string  "content_type"
+    t.string  "filename"
+    t.integer "height"
+    t.integer "width"
+    t.integer "parent_id"
+    t.string  "thumbnail"
+    t.integer "album_art_id"
+  end
 
   create_table "album_arts", :force => true do |t|
     t.integer  "user_id"

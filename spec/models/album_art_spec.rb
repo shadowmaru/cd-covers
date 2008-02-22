@@ -8,7 +8,6 @@ module AlbumArtSpecHelper
       :album_name => "Anacrônico",
       :artist_name => "Pitty",
       :score => 0,
-      :image => fixture_file_upload("/files/anacronico.jpg", "image/jpeg"),
       :image_filesize => '29600',
       :image_size => '300x300'
     }
@@ -39,10 +38,6 @@ describe AlbumArt do
   
   it "should have 1 error on artist name" do
     @album_art.should have(1).error_on(:artist_name)
-  end
-  
-  it "should have 1 error on image" do
-    @album_art.should have(1).error_on(:image)
   end
   
   it "should have a initial score of zero" do
