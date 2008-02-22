@@ -15,17 +15,17 @@
 
 <p>
   <b>Image:</b>
-  <%= image_tag url_for_file_column(@album_art, "image", "standard") %>
+  <%= image_tag @album_art.album_art_image.public_filename %>
 </p>
 
 <p>
   <b>Image size:</b>
-  <%=h @album_art.image_size %>
+  <%=h "#{@album_art.album_art_image.width}x#{@album_art.album_art_image.height}" %>
 </p>
 
 <p>
   <b>Image filesize:</b>
-  <%= number_to_human_size(@album_art.image_filesize) %>
+  <%= number_to_human_size(@album_art.album_art_image.size) %>
 </p>
 
 <p>

@@ -1,6 +1,7 @@
 <% for album_art in @album_arts %>
+  <%if !album_art.album_art_image.blank?%>
 <div class="album_art">
-    <%= link_to image_tag(url_for_file_column(album_art,"image","thumbnail"), :id => "album_art_#{album_art.id}"), album_art %>
+    <%= link_to image_tag(album_art.album_art_image.public_filename(:thumb), :id => "album_art_#{album_art.id}"), album_art %>
     <dl>
       <dt>Usuário:</dt>
       <dd><%=h album_art.user.login %></dd>
@@ -9,14 +10,14 @@
       <dt>Artista:</dt>
       <dd><%=h album_art.artist_name %></dd>
       <dt>Dimensões:</dt>
-      <dd><%=h album_art.image_size %></dd>
-      <dt>Arquivo:</dt><dd><%=h number_to_human_size(album_art.image_filesize) %></dd>
+      <dd><%=h "#{album_art.album_art_image.width}x#{album_art.album_art_image.height}" %></dd>
+      <dt>Arquivo:</dt><dd><%=h number_to_human_size(album_art.album_art_image.size) %></dd>
       <dt>Nota:</dt><dd><%=h album_art.score %></dd>
       <dt>Criado em:</dt><dd><%= format_datetime(album_art.created_at) %></dd>
     </dl>
     <p><%= link_to 'Editar', edit_album_art_path(album_art) %>, 
     <%= link_to 'Apagar', album_art, :confirm => 'Are you sure?', :method => :delete %></p>
-  
 </div>
+  <% end %>
 <% end %>
 

@@ -47,6 +47,10 @@ class AlbumArtsController < ApplicationController
 
     respond_to do |format|
       if @album_art.save
+        #Here comes the important bit!
+        if !params[:album_art_image][:uploaded_data].blank?
+          @album_art.album_art_image = AlbumArtImage.create(params[:album_art_image])       
+        end
         flash[:notice] = 'AlbumArt was successfully created.'
         format.html { redirect_to(@album_art) }
         format.xml  { render :xml => @album_art, :status => :created, :location => @album_art }
@@ -64,6 +68,13 @@ class AlbumArtsController < ApplicationController
 
     respond_to do |format|
       if @album_art.update_attributes(params[:album_art])
+        # Heres the important bit!
+        if !params[:album_art_image][:uploaded_data].blank?
+          #find current image
+          @album_art_image = @album_art.album_art_image ||= AlbumArtImage.new
+          @album_art_image = @album_art.album_art_image.build(params[:album_art_image])
+          @album_art_image.save       
+        end
         flash[:notice] = 'AlbumArt was successfully updated.'
         format.html { redirect_to(@album_art) }
         format.xml  { head :ok }

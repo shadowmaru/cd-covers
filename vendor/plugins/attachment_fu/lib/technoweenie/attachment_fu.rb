@@ -1,3 +1,5 @@
+require 'mime/types'
+
 module Technoweenie # :nodoc:
   module AttachmentFu # :nodoc:
     @@default_processors = %w(ImageScience Rmagick MiniMagick)
@@ -176,6 +178,10 @@ module Technoweenie # :nodoc:
           tmp.close
         end
       end
+      
+      def mime_type_from_extension(extension)
+        MIME::Types.type_for(extension).first.simplified
+      end
     end
 
     module InstanceMethods
@@ -322,6 +328,14 @@ module Technoweenie # :nodoc:
         self.class.with_image(temp_path, &block)
       end
 
+      def set_from_file(source_file)
+          source_file_extension = File.extname(source_file.path).reverse.chomp('.').reverse
+          source_file_name = File.basename(source_file.path)
+          self.content_type = self.class.mime_type_from_extension(source_file_extension)
+          self.filename = source_file_name
+          self.temp_data = source_file.read
+      end
+
       protected
         # Generates a unique filename for a Tempfile. 
         def random_tempfile_filename
@@ -405,6 +419,7 @@ module Technoweenie # :nodoc:
         def destroy_thumbnails
           self.thumbnails.each { |thumbnail| thumbnail.destroy } if thumbnailable?
         end
+        
     end
   end
 end
