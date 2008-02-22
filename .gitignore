@@ -1,4 +1,5 @@
-*.log
+nbproject/*
+log/*.log
 db/schema.db
 test/tmp/*
 public/album_art/*
