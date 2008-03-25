@@ -9290,3 +9290,47 @@ Processing AlbumArtsController#new (for 127.0.0.1 at 2008-01-22 16:09:32) [GET]
 Rendering template within layouts/application
 Rendering album_arts/new
 Completed in 0.09427 (10 reqs/sec) | Rendering: 0.04979 (52%) | DB: 0.00636 (6%) | 200 OK [http://localhost/album_arts/new]
+  [4;36;1mSQL (0.000341)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.063727)[0m   [0mCREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000742)[0m   [0;1mINSERT INTO `schema_info` (version) VALUES(0)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Table 'schema_info' already exists: CREATE TABLE `schema_info` (version int(11))[0m
+  [4;36;1mSQL (0.000484)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateUsers (1)
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Unknown table 'users': DROP TABLE `users`[0m
+  [4;36;1mSQL (0.003428)[0m   [0;1mCREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `login` varchar(255) DEFAULT NULL, `email` varchar(255) DEFAULT NULL, `crypted_password` varchar(40) DEFAULT NULL, `salt` varchar(40) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL, `remember_token` varchar(255) DEFAULT NULL, `remember_token_expires_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000769)[0m   [0mUPDATE schema_info SET version = 1[0m
+  [4;36;1mSQL (0.000294)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to CreateAlbumArts (2)
+  [4;35;1mSQL (0.019370)[0m   [0mCREATE TABLE `album_arts` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `user_id` int(11) DEFAULT NULL, `album_name` varchar(255) DEFAULT NULL, `artist_name` varchar(255) DEFAULT NULL, `image` varchar(255) DEFAULT NULL, `image_size` varchar(255) DEFAULT NULL, `image_filesize` varchar(255) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL, `score` int(11) DEFAULT NULL, `created_at` datetime DEFAULT NULL, `updated_at` datetime DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000631)[0m   [0;1mUPDATE schema_info SET version = 2[0m
+  [4;35;1mSQL (0.000242)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to RemoveThumbnailFromAlbumArt (3)
+  [4;36;1mSQL (0.007818)[0m   [0;1mALTER TABLE `album_arts` DROP `thumbnail`[0m
+  [4;35;1mSQL (0.000309)[0m   [0mUPDATE schema_info SET version = 3[0m
+  [4;36;1mSQL (0.000184)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddDefaultValueToAlbumArtScore (4)
+  [4;35;1mSQL (0.008162)[0m   [0mALTER TABLE `album_arts` CHANGE `score` `score` int(11) DEFAULT 0 NOT NULL[0m
+  [4;36;1mSQL (0.000396)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.000250)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to AddTableAlbumArtImages (5)
+  [4;36;1mSQL (0.003146)[0m   [0;1mCREATE TABLE `album_art_images` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `size` int(11) DEFAULT NULL, `content_type` varchar(255) DEFAULT NULL, `filename` varchar(255) DEFAULT NULL, `height` int(11) DEFAULT NULL, `width` int(11) DEFAULT NULL, `parent_id` int(11) DEFAULT NULL, `thumbnail` varchar(255) DEFAULT NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.005875)[0m   [0mUPDATE schema_info SET version = 5[0m
+  [4;36;1mSQL (0.000177)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddAlbumArtIdToAlbumArtImage (6)
+  [4;35;1mSQL (0.007747)[0m   [0mALTER TABLE `album_art_images` ADD `album_art_id` int(11)[0m
+  [4;36;1mSQL (0.000529)[0m   [0;1mUPDATE schema_info SET version = 6[0m
+  [4;35;1mSQL (0.000236)[0m   [0mSELECT version FROM schema_info[0m
+Migrating to CreateAlbumArtImageFromFileColumn (7)
+  [4;36;1mAlbumArt Load (0.000538)[0m   [0;1mSELECT * FROM `album_arts` [0m
+  [4;35;1mSQL (0.000269)[0m   [0mUPDATE schema_info SET version = 7[0m
+  [4;36;1mSQL (0.000201)[0m   [0;1mSELECT * FROM schema_info[0m
+  [4;35;1mSQL (0.000385)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001942)[0m   [0;1mSHOW FIELDS FROM `album_art_images`[0m
+  [4;35;1mSQL (0.002909)[0m   [0mdescribe `album_art_images`[0m
+  [4;36;1mSQL (0.000520)[0m   [0;1mSHOW KEYS FROM `album_art_images`[0m
+  [4;35;1mSQL (0.002177)[0m   [0mSHOW FIELDS FROM `album_arts`[0m
+  [4;36;1mSQL (0.002642)[0m   [0;1mdescribe `album_arts`[0m
+  [4;35;1mSQL (0.001267)[0m   [0mSHOW KEYS FROM `album_arts`[0m
+  [4;36;1mSQL (0.012432)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.002803)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.002112)[0m   [0;1mSHOW KEYS FROM `users`[0m
