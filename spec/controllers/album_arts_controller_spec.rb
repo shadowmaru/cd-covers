@@ -229,7 +229,7 @@ describe AlbumArtsController do
   
       def do_post
         @album_art.should_receive(:save).and_return(true)
-        post :create, :album_art => { }
+        post :create, :album_art => { }, :album_art_image => { }
       end
   
       it "should create a new album_art" do
@@ -270,7 +270,7 @@ describe AlbumArtsController do
 
       def do_put
         @album_art.should_receive(:update_attributes).and_return(true)
-        put :update, :id => "1"
+        put :update, :id => "1", :album_art => { }, :album_art_image => { }
       end
 
       it "should find the album_art requested" do
