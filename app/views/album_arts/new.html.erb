@@ -4,6 +4,7 @@
 
 <% form_for :album_art, @album_art, :url=> album_arts_path, :html => {:multipart => true} do |f| %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
+
   <p>
     <b>Nome do álbum</b><br />
     <%= f.text_field :album_name %>
