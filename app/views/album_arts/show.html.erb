@@ -1,43 +1,7 @@
-<p>
-  <b>User:</b>
-  <%=h @album_art.user.login %>
-</p>
+<h2><%=h @album_art.album_name %> - <%=h @album_art.artist_name %></h2>
 
-<p>
-  <b>Album name:</b>
-  <%=h @album_art.album_name %>
-</p>
-
-<p>
-  <b>Artist name:</b>
-  <%=h @album_art.artist_name %>
-</p>
-
-<p>
-  <b>Image:</b>
-  <%= image_tag @album_art.album_art_image.public_filename %>
-</p>
-
-<p>
-  <b>Image size:</b>
-  <%=h "#{@album_art.album_art_image.width}x#{@album_art.album_art_image.height}" %>
-</p>
-
-<p>
-  <b>Image filesize:</b>
-  <%= number_to_human_size(@album_art.album_art_image.size) %>
-</p>
-
-<p>
-  <b>Score:</b>
-  <%=h @album_art.score %>
-</p>
-
-<p>
-  <b>Created at:</b>
-  <%= format_datetime(@album_art.created_at) %>
-</p>
-
-
-<%= link_to 'Edit', edit_album_art_path(@album_art) %> |
-<%= link_to 'Back', album_arts_path %>
+<div id="album_art">
+	<%= image_tag @album_art.album_art_image.public_filename %>
+	<%= render :partial => 'album_art_info', :locals => { :album_art => @album_art } %>
+	<p><%= link_to 'Editar', edit_album_art_path(@album_art) if @album_art.user == current_user %></p>
+</div>

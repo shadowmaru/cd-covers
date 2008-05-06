@@ -1,0 +1,13 @@
+    <dl>
+      <dt>Usuário:</dt>
+      <dd><%=h album_art.user.login %></dd>
+      <dt>Álbum:</dt>
+      <dd><%=h album_art.album_name %></dd>
+      <dt>Artista:</dt>
+      <dd><%=h album_art.artist_name %></dd>
+      <dt>Dimensões:</dt>
+      <dd><%=h "#{album_art.album_art_image.width}x#{album_art.album_art_image.height}" %></dd>
+      <dt>Arquivo:</dt><dd><%=h number_to_human_size(album_art.album_art_image.size) %></dd>
+      <dt>Nota:</dt><dd><%=h album_art.score %></dd>
+      <dt>Criado em:</dt><dd><%= format_datetime(album_art.created_at) %></dd>
+    </dl>

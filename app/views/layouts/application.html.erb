@@ -8,23 +8,25 @@
 	<meta name="generator" content="TextMate http://macromates.com/">
 	<meta name="author" content="Shadow">
 	<%= stylesheet_link_tag "cdcovers" %>
-        <%= javascript_include_tag :all %>
+    <%= javascript_include_tag :all %>
 	<!-- Date: 2008-01-03 -->
 </head>
 <body>
 	<div id="header">
-		<h1>Capas de CD (alfa)</h1>
+		<h1>Capas de CD <sup>&alpha;</sup></h1>
 	    <div id="userline">
-			<% if logged_in? %>
-			<p><strong><%=h current_user.login %></strong> | 
-                        <%= link_to 'nova capa', new_album_art_path %> |
-                        <%= link_to 'sair', logout_path %></p>
-			<% else %>
 			<p>
+			<% if logged_in? %>
+				<strong><%=h current_user.login %></strong> | 
+				<%= link_to 'home', album_arts_path %> |
+                <%= link_to 'nova capa', new_album_art_path %> |
+                <%= link_to 'sair', logout_path %>
+			<% else %>
+				<%= link_to 'home', album_arts_path %> |
 				<%= link_to 'login', login_path %> ou
 				<%= link_to 'cadastre-se', signup_path %>
-			</p>
 			<% end %>
+			</p>
 		</div>
 	</div>
 

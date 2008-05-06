@@ -42,7 +42,7 @@ h2{
     margin:auto;
 }
 
-.album_art {
+li.album_art {
     font-size:0.9em;
     width: 150px;
     display:table;
@@ -50,8 +50,20 @@ h2{
     margin:0px 10px;
 }
 
-.album_art dt, .album_art dd {float:left;}
+li.album_art dt, li.album_art dd {float:left;}
+li.album_art dt {clear:left; margin-right:3px;}
+li.album_art dd {clear:right;}
+li.album_art p {clear:both;}
 
-.album_art dt {clear:left; margin-right:3px;}
-.album_art dd {clear:right;}
-.album_art p {clear:both;}
+#album_art {
+    font-size:0.9em;
+    width: 150px;
+    display:table;
+    float:left;
+    margin:0px 10px;
+}
+
+#album_art dt, #album_art dd {float:left;}
+#album_art dt {clear:left; margin-right:3px;}
+#album_art dd {clear:right;}
+#album_art p {clear:both;}
