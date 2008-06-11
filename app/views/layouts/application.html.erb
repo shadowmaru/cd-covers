@@ -33,9 +33,11 @@
 	<% if flash[:notice] %><p class="flash notice"><%= flash[:notice] %></p><% end %>
 	<% if flash[:error] %><p class="flash error"><%= flash[:error] %></p><% end %>
 	
-	<% form_tag 'album_arts/search', {:id => "album_art_search"} do -%>
-		<%= text_field_tag :q %>
-		<%= submit_tag 'Buscar' %>
+	<% form_tag '/album_arts/search', {:id => "album_art_search", :method => "GET"} do -%>
+		<fieldset>
+			<%= text_field_tag :q %>
+			<%= submit_tag 'Buscar' %>
+		</fieldset>
 	<% end -%>
 
 	<div id="content">

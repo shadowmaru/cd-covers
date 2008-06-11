@@ -1,7 +1,8 @@
+<% if @album_arts.size > 0 %>
 <ul>
-<% for album_art in @album_arts %>
-  <%if !album_art.album_art_image.blank?%>
-<li class="album_art">
+	<% for album_art in @album_arts %>
+  		<%if !album_art.album_art_image.blank?%>
+	<li class="album_art">
     <%= link_to image_tag(album_art.album_art_image.public_filename(:thumb), :id => "album_art_#{album_art.id}"), album_art %>
 
 	<%= render :partial => 'album_art_info', :locals => { :album_art => album_art } %>
@@ -11,6 +12,9 @@
     <%= link_to 'Apagar', album_art, :confirm => 'Are you sure?', :method => :delete  %></p>
 	<% end %>
 </li>
-  <% end %>
-<% end %>
+  		<% end %>
+	<% end %>
 </ul>
+<% else %>
+	<p>Sua busca não encontrou capas</p>
+<% end %>

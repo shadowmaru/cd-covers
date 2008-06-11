@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :album_arts
 
+  map.resources :album_arts, :collection => { :search => :get }
 
   map.resources :users, :has_many => :album_arts
   map.resource  :sessions
@@ -13,4 +13,5 @@ ActionController::Routing::Routes.draw do |map|
 
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+
 end

@@ -193,7 +193,7 @@ describe AlbumArtsController do
       response.should be_redirect
     end
 
-    it "should be successful" do
+    it "should be successful when logged in" do
       do_login
       do_get
       response.should be_success
@@ -335,5 +335,33 @@ describe AlbumArtsController do
       do_delete
       response.should redirect_to(album_arts_url)
     end
+  end
+  
+  describe "searching album art" do
+
+    before(:each) do
+      @album_art = mock_model(AlbumArt)
+      AlbumArt.stub!(:find).and_return(@album_art)
+    end
+
+    def do_get
+      get :search, :q => "pitty"
+    end
+    
+    it "should search for the album art with the parameter passed" do
+      AlbumArt.should_receive(:find).and_return(@album_art)
+      do_get
+    end
+    
+    it "should render the results page" do
+      do_get
+      response.should render_template('search')
+    end
+    
+    it "should assign the found album_arts for the view" do
+      do_get
+      assigns[:album_arts].should == @album_art
+    end
+
   end
 end

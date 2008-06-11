@@ -96,4 +96,14 @@ class AlbumArtsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  def search
+    q = params[:q]
+    @album_arts = AlbumArt.find(:all, :conditions => "album_name LIKE '%#{q}%' OR artist_name LIKE '%#{q}%'")
+    
+    respond_to do |format|
+      format.html
+    end
+  end
+
 end

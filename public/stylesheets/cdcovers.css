@@ -37,6 +37,12 @@ h2{
     clear:right;
 }
 
+form#album_art_search fieldset {
+	width:1000px;
+	margin:10px auto;
+	text-align:right;
+}
+
 #content {
     width:1000px;
     margin:auto;
