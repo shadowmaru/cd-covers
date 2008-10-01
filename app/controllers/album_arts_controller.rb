@@ -103,6 +103,7 @@ class AlbumArtsController < ApplicationController
     
     respond_to do |format|
       format.html
+      format.xml  { render :xml => @album_arts.collect { |a| a.album_art_image } }
     end
   end
 
